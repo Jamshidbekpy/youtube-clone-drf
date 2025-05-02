@@ -1,9 +1,3 @@
-services:
-  - type: web
-    name: my-django-app
-    env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn core.wsgi"
-    postDeploy:
-      - "python manage.py migrate"
-      - "echo \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'adminpass') if not User.objects.filter(username='admin').exists() else print('Superuser exists')\" | python manage.py shell"
+postDeploy:
+  - "python manage.py migrate"
+  - "echo \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'adminpass') if not User.objects.filter(username='admin').exists() else print('Superuser exists')\" | python manage.py shell"
