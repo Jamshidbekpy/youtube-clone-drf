@@ -23,13 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
+# SECRET_KEY = os.getenv("SECRET_KEY")
 
-if not SECRET_KEY:
-    raise ValueError("SECRET_KEY topilmadi! .env faylini tekshiring.")
+SECRET_KEY = "JG_0QaQQUYPJiDJeeGhQ99H5MWSlQhkEcr8aNSsn5-5n_Llq7ZS5ZBW3YkxwbNVZCwQ"
+# if not SECRET_KEY:
+#     raise ValueError("SECRET_KEY topilmadi! .env faylini tekshiring.")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG")=="True"
+# DEBUG = os.getenv("DEBUG")=="True"
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -163,7 +165,8 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False,  
     'BLACKLIST_AFTER_ROTATION': True,  
     'ALGORITHM': 'HS256',  
-    'SIGNING_KEY':os.getenv('SIGNING_KEY'),  
+    # 'SIGNING_KEY':os.getenv('SIGNING_KEY'),  
+    'SIGNING_KEY': 'SGY5OLazKUUdIyfMqoR8lEFFDwEQ2AWMXnE5R3QdBhpN5wlKZxi5_pmwWejXvQAYcW',
     'AUTH_HEADER_TYPES': ('Bearer',),   
 }
 
@@ -183,6 +186,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD') 
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')  
+EMAIL_HOST_USER = "TbCZl@example.com"
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')  
+EMAIL_HOST_PASSWORD = "0980980809" 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
